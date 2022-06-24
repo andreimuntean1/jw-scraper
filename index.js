@@ -51,12 +51,12 @@ const sendEmail = async () => {
 			.createTransport({
 				service: "gmail",
 				auth: {
-					user: "server@andreimuntean.dev",
-					pass: process.env.EMAIL_PASSWORD,
+					user: process.env.EMAIL,
+					pass: process.env.PASSWORD,
 				},
 			})
 			.sendMail({
-				from: "server@andreimuntean.dev",
+				from: process.env.EMAIL,
 				to: process.env.RECIPIENT,
 				subject: `Articol nou în categoria ${latestArticle.src}`,
 				html: `
