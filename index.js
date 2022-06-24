@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import axios from "axios";
 import { load } from "cheerio";
 import nodemailer from "nodemailer";
@@ -44,8 +45,8 @@ const storeLastArticle = async () => {
 
 const sendEmail = async () => {
 	const docRef = doc(db, "article", "latestArticle");
-	const docData = await getDoc(docRef).data();
-	if (latestArticle.url !== docData.url) {
+	const docData = await getDoc(docRef);
+	if (latestArticle.url !== docData.data().url) {
 		nodemailer
 			.createTransport({
 				service: "gmail",
@@ -56,7 +57,7 @@ const sendEmail = async () => {
 			})
 			.sendMail({
 				from: "server@andreimuntean.dev",
-				to: "andreymuntean2004@gmail.com",
+				to: process.env.RECIPIENT,
 				subject: `Articol nou în categoria ${latestArticle.src}`,
 				html: `
           <p style="font-size: 20px;">
