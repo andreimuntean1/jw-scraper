@@ -57,7 +57,7 @@ const sendEmail = async () => {
 			})
 			.sendMail({
 				from: process.env.EMAIL,
-				to: process.env.RECIPIENT,
+				to: process.env.RECIPIENTS,
 				subject: `Articol nou în categoria ${latestArticle.src}`,
 				html: `
           <p style="font-size: 20px;">
