@@ -36,9 +36,9 @@ Create a .env file and add the following environment variables
 
 ```EMAIL``` and ```PASSWORD``` , as Nodemailer email credentials
 
-```RECIPIENTS``` , separated only by comma
+```RECIPIENTS``` , separated by commas
 
-e.g. ```john.doe@example.com, jane.doe@example.com, richard.roe@example.com```
+e.g. ```john.doe@example.com,jane.doe@example.com,richard.roe@example.com```
 
 
 Start the server
