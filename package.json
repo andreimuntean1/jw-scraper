@@ -1,15 +1,15 @@
 {
   "name": "jw-scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web scraper for jw.org that fetches the last article posted and sends an email with the article's title and link.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["jw", "jw.org", "scraper", "email"],
+  "author": "Andrei Muntean",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.11",
