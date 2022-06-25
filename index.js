@@ -58,6 +58,8 @@ const sendEmail = async (article) => {
 	const docRef = doc(db, "article", "latestArticle");
 	const docData = await getDoc(docRef);
 	if (article.url !== docData.data().url) {
+		console.log("New article found!");
+		console.log("Sending email...");
 		nodemailer
 			.createTransport({
 				service: "gmail",
@@ -79,6 +81,11 @@ const sendEmail = async (article) => {
 			})
 			.then((res) => {
 				console.log(res);
+				console.log("Email sent!");
+			})
+			.then(() => {
+				storeLastArticle(article);
+				console.log('Last article updated');
 			})
 			.catch((err) => {
 				console.log(err);
@@ -89,10 +96,9 @@ const sendEmail = async (article) => {
 // Run the functions
 const checkForNewArticle = async () => {
 	await scrape().then((article) => {
-		storeLastArticle(article);
 		sendEmail(article);
 	});
 };
 
-// Check for new articles hourly
-setInterval(checkForNewArticle, 1000 * 60 * 60);
+// Check for new articles every 5 minutes
+setInterval(checkForNewArticle, 1000 * 5);
