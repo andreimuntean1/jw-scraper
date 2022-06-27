@@ -100,5 +100,5 @@ const checkForNewArticle = async () => {
 	});
 };
 
-// Check for new articles every 5 minutes
-setInterval(checkForNewArticle, 1000 * 60 * 5);
+// Check for new articles every minute
+setInterval(checkForNewArticle, 1000 * 60);
