@@ -15,7 +15,7 @@ const scrape = async () => {
 
 	// Fetch the website content and parse it with cheerio
 	const url = "https://www.jw.org/ro/ce-e-nou/";
-	const response = await axios(url);
+	const response = await axios(url, { timeout: 5000 });
 	const $ = load(response.data);
 
 	// Get the title of the latest article and remove new lines and spaces
@@ -44,7 +44,7 @@ const scrape = async () => {
 			"#article > div.whatsNewItems > div.synopsis.sqs.desc.first > div.syn-body.sqs > h3 > a"
 		)
 		.attr("href")}`;
-		
+
 	console.log("Fetching done!");
 
 	return latestArticle;
@@ -91,7 +91,7 @@ const sendEmail = async (article) => {
 			})
 			.then(() => {
 				storeLastArticle(article);
-				console.log('Last article updated');
+				console.log("Last article updated");
 			})
 			.catch((err) => {
 				console.log(err);
