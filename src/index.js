@@ -5,7 +5,11 @@ import nodemailer from "nodemailer";
 import { db } from "./firebase.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
+console.log("Server started!");
+
 const scrape = async () => {
+	console.log("Scraping...");
+
 	// Define the structure of the article
 	const latestArticle = { title: "", src: "", url: "" };
 
@@ -40,6 +44,8 @@ const scrape = async () => {
 			"#article > div.whatsNewItems > div.synopsis.sqs.desc.first > div.syn-body.sqs > h3 > a"
 		)
 		.attr("href")}`;
+		
+	console.log("Scraping done!");
 
 	return latestArticle;
 };
