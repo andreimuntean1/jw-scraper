@@ -8,7 +8,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 console.log("Server started!");
 
 const scrape = async () => {
-	console.log("Scraping...");
+	console.log("Fetching...");
 
 	// Define the structure of the article
 	const latestArticle = { title: "", src: "", url: "" };
@@ -45,7 +45,7 @@ const scrape = async () => {
 		)
 		.attr("href")}`;
 		
-	console.log("Scraping done!");
+	console.log("Fetching done!");
 
 	return latestArticle;
 };
