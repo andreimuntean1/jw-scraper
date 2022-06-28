@@ -2,10 +2,10 @@
   "name": "jw-scraper",
   "version": "1.0.0",
   "description": "A web scraper for jw.org that fetches the last article posted and sends an email with the article's title and link.",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node ."
+    "start": "node src/index.js"
   },
   "keywords": [
     "jw",
