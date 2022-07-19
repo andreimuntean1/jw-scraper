@@ -96,6 +96,8 @@ const sendEmail = async (article) => {
 			.catch((err) => {
 				console.log(err);
 			});
+	} else {
+		console.log("No new article found. I'll keep checking...");
 	}
 };
 
