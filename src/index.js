@@ -15,7 +15,11 @@ const scrape = async () => {
 
 	// Fetch the website content and parse it with cheerio
 	const url = "https://www.jw.org/ro/ce-e-nou/";
-	const response = await axios(url).catch((err) => console.log(err));
+	const response = await axios(url, {
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+		},
+	}).catch((err) => console.log(err));
 	const $ = load(response.data);
 
 	// Get the title of the latest article and remove new lines and spaces
