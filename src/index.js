@@ -16,8 +16,9 @@ const scrape = async () => {
 	// Fetch the website content and parse it with cheerio
 	const url = "https://www.jw.org/ro/ce-e-nou/";
 	const response = await axios(url, {
+		clarifyTimeoutError: true,
 		headers: {
-			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Origin": "*"
 		},
 	}).catch((err) => console.log(err));
 	const $ = load(response.data);
