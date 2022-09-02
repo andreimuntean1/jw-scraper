@@ -8,7 +8,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 console.log("Server started!");
 
 const scrape = async () => {
-	console.log("Scraping...");
+	console.log("Fetching...");
 
 	// Define the structure of the article
 	const latestArticle = { title: "", src: "", url: "" };
@@ -45,8 +45,6 @@ const scrape = async () => {
 		)
 		.attr("href")}`;
 		
-	console.log("Scraping done!");
-
 	return latestArticle;
 };
 
@@ -86,7 +84,6 @@ const sendEmail = async (article) => {
         `,
 			})
 			.then((res) => {
-				console.log(res);
 				console.log("Email sent!");
 			})
 			.then(() => {
@@ -96,6 +93,8 @@ const sendEmail = async (article) => {
 			.catch((err) => {
 				console.log(err);
 			});
+	} else {
+		console.log("No new article. Still searching...");
 	}
 };
 
