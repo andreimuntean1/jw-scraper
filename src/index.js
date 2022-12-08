@@ -20,7 +20,7 @@ const scrape = async () => {
 			clarifyTimeoutError: true,
 		},
 		headers: {
-			"Access-Control-Allow-Origin": "*"
+			"Access-Control-Allow-Origin": "*",
 		},
 	}).catch((err) => console.log(err));
 	const $ = load(response.data);
@@ -92,7 +92,7 @@ const sendEmail = async (article) => {
           <p style="font-size: 16px;">Citește-l <a href=${article.url} style="font-size: 18px;">aici</a></p>
         `,
 			})
-			.then((res) => {
+			.then(() => {
 				console.log("Email sent!");
 			})
 			.then(() => {
