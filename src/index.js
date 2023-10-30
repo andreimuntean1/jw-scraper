@@ -73,8 +73,6 @@ const sendEmail = async (article) => {
   if (article.url !== docData.data().url) {
     console.log("New article found!");
     console.log("Sending email...");
-    console.log("cloud", article.url);
-    console.log("local", docData.data().url);
     nodemailer
       .createTransport({
         host: "smtp.improvmx.com",
