@@ -79,7 +79,7 @@ const sendEmail = async (article) => {
       .createTransport({
         host: "smtp.improvmx.com",
         port: 587,
-        secure: false,
+        secure: true,
         auth: {
           user: process.env.EMAIL,
           pass: process.env.PASSWORD,
